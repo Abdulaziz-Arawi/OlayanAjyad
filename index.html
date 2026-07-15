@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>سجل المخزن اجياد</title>
+<title> سجل المخزن اجياد</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&family=Tajawal:wght@400;500;700;900&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
 <style>
@@ -257,114 +257,15 @@
   .conn-dot.err{background:var(--stamp-out);}
   .btn-logout{background:transparent;color:#C7CDD6;border:1px solid #48505C;font-size:12px;padding:7px 12px;}
   .btn-logout:hover{background:rgba(255,255,255,0.08);}
-
-  /* ============================================================
-     ✨ طبقة الأنيميشن — تحسينات حركية دون تغيير التصميم
-     ============================================================ */
-
-  html{scroll-behavior:smooth;}
-
-  /* ---- Keyframes ---- */
-  @keyframes rise{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
-  @keyframes riseIn{from{opacity:0;transform:translateY(22px) scale(.985);}to{opacity:1;transform:translateY(0) scale(1);}}
-  @keyframes slideDown{from{opacity:0;transform:translateY(-14px);}to{opacity:1;transform:translateY(0);}}
-  @keyframes rowIn{from{opacity:0;transform:translateX(10px);}to{opacity:1;transform:translateX(0);}}
-  @keyframes ringPulse{0%,100%{box-shadow:0 0 0 0 rgba(0,0,0,0);}50%{box-shadow:0 0 0 10px rgba(0,0,0,0.05);}}
-  @keyframes shimmer{0%{background-position:200% 0;}100%{background-position:-200% 0;}}
-  @keyframes floatMark{0%,100%{transform:translateY(0) rotate(0);}50%{transform:translateY(-3px) rotate(-2deg);}}
-  @keyframes dotPing{0%{box-shadow:0 0 0 0 currentColor;opacity:.6;}70%{box-shadow:0 0 0 7px transparent;opacity:0;}100%{opacity:0;}}
-
-  /* ---- topbar / brand ---- */
-  .topbar{animation:slideDown .5s cubic-bezier(.2,.8,.25,1) both;}
-  .brand-mark{transition:transform .3s ease, box-shadow .3s ease;}
-  .brand-mark:hover{transform:translateY(-2px) rotate(-3deg) scale(1.05);box-shadow:inset 0 0 0 2px rgba(255,255,255,0.5),0 6px 14px rgba(0,0,0,.25);}
-  .conn-dot.ok, .conn-dot.err{position:relative;}
-  .conn-dot.ok::after{content:"";position:absolute;inset:0;border-radius:50%;animation:dotPing 1.8s ease-out infinite;}
-
-  /* ---- tabs ---- */
-  .tabs{animation:rise .5s .05s cubic-bezier(.2,.8,.25,1) both;}
-  .tab{position:relative;transition:background .18s ease, color .18s ease, transform .18s ease, box-shadow .2s ease;overflow:hidden;}
-  .tab::after{content:"";position:absolute;left:50%;bottom:6px;width:0;height:2px;background:var(--freezer);border-radius:2px;transform:translateX(-50%);transition:width .22s ease;}
-  .tab:hover{transform:translateY(-1px);}
-  .tab:hover::after{width:38%;}
-  .tab:active{transform:translateY(0) scale(.97);}
-  .tab.active::after{width:0;}
-
-  /* ---- views ---- */
-  .view.active{animation:riseIn .4s cubic-bezier(.2,.8,.25,1);}
-  .view.active > .section-title{animation:rise .45s .02s both;}
-  .view.active > .section-sub{animation:rise .45s .06s both;}
-
-  /* ---- cards ---- */
-  .card{transition:transform .25s cubic-bezier(.2,.8,.25,1), box-shadow .25s ease, border-color .25s ease;}
-  .view.active .card{animation:rise .5s both;}
-  .view.active .card:nth-of-type(1){animation-delay:.06s;}
-  .view.active .card:nth-of-type(2){animation-delay:.12s;}
-  .view.active .card:nth-of-type(3){animation-delay:.18s;}
-  .view.active .card:nth-of-type(4){animation-delay:.24s;}
-  .view.active .card:nth-of-type(5){animation-delay:.30s;}
-  .card:hover{box-shadow:0 10px 26px rgba(27,36,48,0.10);border-color:var(--line-strong);}
-
-  /* ---- store cards (dashboard) ---- */
-  .store-card{transition:transform .28s cubic-bezier(.2,.8,.25,1), box-shadow .28s ease;animation:riseIn .55s both;}
-  #dashCards .store-card:nth-child(1){animation-delay:.08s;}
-  #dashCards .store-card:nth-child(2){animation-delay:.16s;}
-  #dashCards .store-card:nth-child(3){animation-delay:.24s;}
-  .store-card::before{
-    content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;
-    background:linear-gradient(120deg,transparent,rgba(255,255,255,0.35),transparent);
-    transform:skewX(-18deg);transition:left .6s ease;pointer-events:none;
-  }
-  .store-card:hover{transform:translateY(-6px) scale(1.015);box-shadow:0 16px 34px rgba(0,0,0,0.22);}
-  .store-card:hover::before{left:120%;}
-
-  /* ---- buttons ---- */
-  button{position:relative;overflow:hidden;transition:background .15s ease, transform .12s ease, box-shadow .2s ease;}
-  button:not(:disabled):hover{transform:translateY(-1px);box-shadow:0 6px 14px rgba(27,36,48,0.14);}
-  button:not(:disabled):active{transform:translateY(0) scale(.97);}
-  button::after{
-    content:"";position:absolute;top:50%;left:50%;width:0;height:0;border-radius:50%;
-    background:rgba(255,255,255,0.4);transform:translate(-50%,-50%);pointer-events:none;
-  }
-  button:not(:disabled):active::after{width:220%;height:220%;transition:width .4s ease, height .4s ease;}
-
-  /* ---- tables ---- */
-  table.data tbody tr{animation:rowIn .35s both;transition:background .15s ease;}
-  table.data tbody tr:nth-child(1){animation-delay:.02s;}
-  table.data tbody tr:nth-child(2){animation-delay:.05s;}
-  table.data tbody tr:nth-child(3){animation-delay:.08s;}
-  table.data tbody tr:nth-child(4){animation-delay:.11s;}
-  table.data tbody tr:nth-child(5){animation-delay:.14s;}
-  table.data tbody tr:nth-child(6){animation-delay:.17s;}
-  table.data tbody tr:hover td{background:rgba(47,111,143,0.06);}
-
-  /* ---- pills / inputs ---- */
-  .pill{transition:transform .15s ease;}
-  .pill:hover{transform:scale(1.06);}
-  input,select,textarea{transition:border-color .18s ease, box-shadow .18s ease, background .18s ease;}
-  input:focus,select:focus,textarea:focus{box-shadow:0 0 0 4px rgba(47,111,143,0.12);}
-
-  /* ---- login ---- */
-  .login-card{animation:riseIn .55s cubic-bezier(.2,.8,.25,1) both;}
-  .login-card .brand-mark{animation:floatMark 3.5s ease-in-out infinite;}
-
-  /* ---- stamp modal enhancement ---- */
-  .stamp-ring{animation:ringPulse 2s ease-in-out infinite;}
-
-  /* ---- reduced motion ---- */
-  @media (prefers-reduced-motion: reduce){
-    html{scroll-behavior:auto;}
-    *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;}
-  }
 </style>
 </head>
 <body>
 
 <div class="login-screen" id="loginScreen">
   <div class="login-card">
-    <div class="brand-mark" style="margin:0 auto 14px;">عزوز</div>
+    <div class="brand-mark" style="margin:0 auto 14px;">ABZ</div>
     <h1>مجموعه فنادق سليمان موسى العليان</h1>
-    <h1>سجل المخزن</h1>
+    <h1>سجل المخزن اجياد</h1>
     <p>سجّل دخولك للمتابعة</p>
     <div class="field" style="text-align:right;margin-top:18px;">
       <label>البريد الإلكتروني</label>
@@ -383,10 +284,10 @@
 
   <div class="topbar">
     <div class="brand">
-      <div class="brand-mark">عزوز</div>
+      <div class="brand-mark">ABZ</div>
       <div>
         <h1>مجموعه فنادق سليمان موسى العليان</h1>
-        <h1>سجل المخزن اجياد</h1>
+        <h1>سجل المخزن الذهبي اجياد</h1>
         
         <p>الفريزر · المواد الغذائية · أدوات النظافة</p>
       </div>
@@ -732,31 +633,6 @@
   <div class="stamp-card" style="max-width:420px;">
     <video id="scannerVideo" style="width:100%;border-radius:10px;background:#000;" muted playsinline></video>
     <p id="scannerStatus" style="font-size:13px;color:var(--ink-soft);margin:12px 0;min-height:20px;">وجّه الكاميرا نحو الباركود...</p>
-
-    <div id="scannerQuickAdd" style="display:none;text-align:right;background:var(--paper);border-radius:10px;padding:12px;margin-bottom:12px;">
-      <p style="font-size:12.5px;margin:0 0 8px;">باركود جديد (<span id="quickAddCode" class="mono" style="font-weight:700;"></span>) — أضفه كصنف جديد وأربطه بالسند:</p>
-      <div class="field">
-        <label>المخزن</label>
-        <select id="quickAddStore">
-          <option value="freezer">فريزر المواد المجمدة</option>
-          <option value="pantry">مخزن المواد الغذائية</option>
-          <option value="cleaning">مخزن أدوات النظافة</option>
-        </select>
-      </div>
-      <div class="field">
-        <label>اسم الصنف</label>
-        <input id="quickAddName" placeholder="اسم الصنف الجديد">
-      </div>
-      <div class="field">
-        <label>الوحدة</label>
-        <input id="quickAddUnit" placeholder="كرتون / كجم / علبة..." value="وحدة">
-      </div>
-      <div style="display:flex;gap:8px;">
-        <button class="btn-in btn-sm" id="quickAddConfirmBtn" style="flex:1;">إضافة وربط بالسند</button>
-        <button class="btn-ghost btn-sm" id="quickAddSkipBtn" style="flex:1;">تجاهل ومتابعة المسح</button>
-      </div>
-    </div>
-
     <button class="btn-ghost stamp-close" id="closeScannerBtn" style="width:100%;">إغلاق الماسح</button>
   </div>
 </div>
@@ -1076,7 +952,6 @@ let scannerControls = null;
 let scannerOnResult = null;
 let lastScanCode = null;
 let lastScanTime = 0;
-let scannerPaused = false;
 
 async function openScanner(onResult, statusText){
   const overlay = document.getElementById('scannerOverlay');
@@ -1085,8 +960,6 @@ async function openScanner(onResult, statusText){
   overlay.classList.add('show');
   scannerOnResult = onResult;
   lastScanCode = null; lastScanTime = 0;
-  scannerPaused = false;
-  document.getElementById('scannerQuickAdd').style.display = 'none';
 
   if(!window.ZXingBrowser){
     statusEl.textContent = 'تعذر تحميل أداة المسح — تأكد من اتصالك بالإنترنت وحدّث الصفحة.';
@@ -1096,7 +969,7 @@ async function openScanner(onResult, statusText){
     if(!zxingReader) zxingReader = new ZXingBrowser.BrowserMultiFormatReader();
     const videoEl = document.getElementById('scannerVideo');
     scannerControls = await zxingReader.decodeFromVideoDevice(undefined, videoEl, (result)=>{
-      if(!result || scannerPaused) return;
+      if(!result) return;
       const text = result.getText();
       const now = Date.now();
       if(text === lastScanCode && (now - lastScanTime) < 2000) return;
@@ -1113,9 +986,6 @@ function closeScanner(){
   document.getElementById('scannerOverlay').classList.remove('show');
   if(scannerControls){ try{ scannerControls.stop(); }catch(e){} scannerControls = null; }
   scannerOnResult = null;
-  scannerPaused = false;
-  document.getElementById('scannerQuickAdd').style.display = 'none';
-  quickAddTableId = null;
 }
 document.getElementById('closeScannerBtn').addEventListener('click', closeScanner);
 
@@ -1274,69 +1144,7 @@ function addOrIncrementLineForItem(tableId, item){
   newRow.querySelector('.line-qty').value = 1;
 }
 
-/* ---------- QUICK-ADD NEW ITEM FROM AN UNRECOGNIZED BARCODE (receiving only) ---------- */
-let quickAddTableId = null;
-
-function showQuickAddForm(code, tableId){
-  quickAddTableId = tableId;
-  scannerPaused = true;
-  document.getElementById('quickAddCode').textContent = code;
-  document.getElementById('quickAddName').value = '';
-  document.getElementById('quickAddUnit').value = 'وحدة';
-  document.getElementById('scannerQuickAdd').style.display = 'block';
-  document.getElementById('scannerStatus').textContent = 'باركود جديد — عبّي بيانات الصنف بالأسفل أو تجاهله ومتابعة المسح.';
-  document.getElementById('quickAddName').focus();
-}
-function hideQuickAddForm(){
-  document.getElementById('scannerQuickAdd').style.display = 'none';
-  scannerPaused = false;
-  quickAddTableId = null;
-}
-document.getElementById('quickAddSkipBtn').addEventListener('click', ()=>{
-  hideQuickAddForm();
-  document.getElementById('scannerStatus').textContent = 'وجّه الكاميرا نحو باركود الصنف...';
-});
-document.getElementById('quickAddConfirmBtn').addEventListener('click', async ()=>{
-  const code = document.getElementById('quickAddCode').textContent;
-  const store = document.getElementById('quickAddStore').value;
-  const name = document.getElementById('quickAddName').value.trim();
-  const unit = document.getElementById('quickAddUnit').value.trim() || 'وحدة';
-  if(!name){ alert('الرجاء إدخال اسم الصنف.'); return; }
-  const tableId = quickAddTableId;
-  const btn = document.getElementById('quickAddConfirmBtn');
-  btn.disabled = true;
-  try{
-    const { data: created, error } = await sb.from('items').insert({ store, name, unit, balance:0, min_qty:0, barcode:code }).select().single();
-    if(error) throw error;
-    const item = { id:created.id, store:created.store, name:created.name, unit:created.unit, balance:0, min:0, barcode:code };
-    DB.items.push(item);
-    addOrIncrementLineForItem(tableId, item);
-    document.getElementById('scannerStatus').textContent = '✓ تمت إضافة "' + name + '" وربطه بالسند';
-    hideQuickAddForm();
-  }catch(e){
-    alert(e && e.code==='23505' ? 'هذا الباركود مستخدم مسبقًا لصنف آخر.' : 'تعذرت إضافة الصنف.');
-  }
-  btn.disabled = false;
-});
-
-async function quickAddViaPrompt(code, tableId){
-  const name = prompt('صنف جديد (باركود: ' + code + ') — اكتب اسم الصنف:');
-  if(!name || !name.trim()) return;
-  const storeChoice = prompt('اختر رقم المخزن:\n1 = فريزر المواد المجمدة\n2 = مخزن المواد الغذائية\n3 = مخزن أدوات النظافة', '1');
-  const store = ({'1':'freezer','2':'pantry','3':'cleaning'})[(storeChoice||'').trim()] || 'freezer';
-  const unit = prompt('وحدة القياس:', 'وحدة') || 'وحدة';
-  try{
-    const { data: created, error } = await sb.from('items').insert({ store, name:name.trim(), unit, balance:0, min_qty:0, barcode:code }).select().single();
-    if(error) throw error;
-    const item = { id:created.id, store:created.store, name:created.name, unit:created.unit, balance:0, min:0, barcode:code };
-    DB.items.push(item);
-    addOrIncrementLineForItem(tableId, item);
-  }catch(e){
-    alert(e && e.code==='23505' ? 'هذا الباركود مستخدم مسبقًا لصنف آخر.' : 'تعذرت إضافة الصنف: ' + (e && e.message || ''));
-  }
-}
-
-function wireBarcodeScanForVoucher(scanBtnId, manualInputId, tableId, allowQuickAdd){
+function wireBarcodeScanForVoucher(scanBtnId, manualInputId, tableId){
   document.getElementById(scanBtnId).addEventListener('click', ()=>{
     openScanner((code)=>{
       const item = findItemByBarcode(code);
@@ -1344,8 +1152,6 @@ function wireBarcodeScanForVoucher(scanBtnId, manualInputId, tableId, allowQuick
       if(item){
         addOrIncrementLineForItem(tableId, item);
         statusEl.textContent = '✓ تمت إضافة: ' + item.name;
-      } else if(allowQuickAdd){
-        showQuickAddForm(code, tableId);
       } else {
         statusEl.textContent = '⚠ لا يوجد صنف مرتبط بهذا الباركود (' + code + ')';
       }
@@ -1360,13 +1166,12 @@ function wireBarcodeScanForVoucher(scanBtnId, manualInputId, tableId, allowQuick
     manualInput.value = '';
     if(!code) return;
     const item = findItemByBarcode(code);
-    if(item){ addOrIncrementLineForItem(tableId, item); }
-    else if(allowQuickAdd){ quickAddViaPrompt(code, tableId); }
-    else { alert('لا يوجد صنف مرتبط بهذا الباركود: ' + code); }
+    if(item) addOrIncrementLineForItem(tableId, item);
+    else alert('لا يوجد صنف مرتبط بهذا الباركود: ' + code);
   });
 }
-wireBarcodeScanForVoucher('inScanBtn','inManualBarcode','inLinesTable', true);
-wireBarcodeScanForVoucher('outScanBtn','outManualBarcode','outLinesTable', false);
+wireBarcodeScanForVoucher('inScanBtn','inManualBarcode','inLinesTable');
+wireBarcodeScanForVoucher('outScanBtn','outManualBarcode','outLinesTable');
 
 /* ---------- VOUCHER SUBMIT: IN ---------- */
 document.getElementById('inSubmit').addEventListener('click', async ()=>{
