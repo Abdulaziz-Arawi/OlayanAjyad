@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>سجل المخزن العليان اجياد</title>
+<title>سجل المخزن اجياد</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&family=Tajawal:wght@400;500;700;900&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
 <style>
@@ -446,10 +446,27 @@
 
   .profile-sep{height:1px;background:var(--line);margin:6px 4px;}
 
+  .profile-trigger,.profile-avatar,.tab,.profile-item{-webkit-tap-highlight-color:transparent;}
+  .profile-trigger:focus,.profile-trigger:focus-visible{outline:none;box-shadow:0 0 0 2px rgba(255,255,255,0.35);}
+
+  /* ============================================================
+     📱 تصميم الجوال — الهيدر يتقسّم لسطرين بدل ما ينضغط ويكسر النص
+     ============================================================ */
+  @media (max-width:700px){
+    .topbar{flex-direction:column;align-items:stretch;gap:10px;padding:14px 16px;}
+    .topbar > div:last-child{width:100%;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+    .brand{gap:9px;}
+    .brand-mark{width:34px;height:34px;font-size:11px;flex-shrink:0;}
+    .brand h1{font-size:14px;line-height:1.3;}
+    .brand p{font-size:10.5px;}
+    .conn-badge{font-size:10px;}
+  }
+
   @media (max-width:620px){
     .profile-meta{display:none;}
     .profile-trigger{padding:4px;}
-    .profile-menu{right:0;left:auto;}
+    .profile{position:static;}
+    .profile-menu{left:12px;right:12px;width:auto;min-width:0;}
   }
 </style>
 </head>
@@ -465,7 +482,7 @@
   <div class="login-card">
     <div class="brand-mark" style="margin:0 auto 14px;">ABZ</div>
     <h1>مجموعة فنادق سليمان موسى العليان</h1>
-    <h1>سجل المخزن العليان اجياد</h1>
+    <h1>سجل المخزن اجياد</h1>
     <p>سجّل دخولك للمتابعة</p>
     <div class="field" style="text-align:right;margin-top:18px;">
       <label>البريد الإلكتروني</label>
@@ -487,7 +504,7 @@
       <div class="brand-mark">ABZ</div>
       <div>
         <h1>مجموعة فنادق سليمان موسى العليان</h1>
-        <h1>سجل المخزن العليان اجياد</h1>
+        <h1>سجل المخزن اجياد</h1>
 
         <p>الفريزر · المواد الغذائية · أدوات النظافة</p>
       </div>
